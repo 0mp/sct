@@ -1,6 +1,6 @@
 # Public domain, do as you wish.
 PREFIX ?= /usr/local
-MAXPREFIX ?= ${PREFIX}/man
+MANPREFIX ?= ${PREFIX}/man
 
 X11INC = /usr/local/include
 X11LIB = /usr/local/lib
