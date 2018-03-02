@@ -1,5 +1,5 @@
 # Public domain, do as you wish.
-PREFIX = /usr/local
+PREFIX ?= /usr/local
 
 X11INC = /usr/local/include
 X11LIB = /usr/local/lib
