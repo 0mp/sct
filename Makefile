@@ -1,6 +1,6 @@
 # Public domain, do as you wish.
 PREFIX ?= /usr/local
-MANPREFIX ?= ${PREFIX}/man
+MANPREFIX ?= ${PREFIX}
 
 X11INC = /usr/local/include
 X11LIB = /usr/local/lib
@@ -20,9 +20,9 @@ install: all
 	@mkdir -p "${DESTDIR}${PREFIX}/bin"
 	@cp -f sct "${DESTDIR}${PREFIX}/bin"
 	@chmod 0755 "${DESTDIR}${PREFIX}/bin/sct"
-	@mkdir -p "${DESTDIR}${MANPREFIX}/man1"
-	@cp -f sct.1 "${DESTDIR}${MANPREFIX}/man1"
-	@chmod 0444 "${DESTDIR}${MANPREFIX}/man1/sct.1"
+	@mkdir -p "${DESTDIR}${MANPREFIX}/man/man1"
+	@cp -f sct.1 "${DESTDIR}${MANPREFIX}/man/man1"
+	@chmod 0444 "${DESTDIR}${MANPREFIX}/man/man1/sct.1"
 
 install-strip: install
 	@strip "${DESTDIR}${PREFIX}/bin/sct"
