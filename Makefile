@@ -29,6 +29,7 @@ install-strip: install
 
 uninstall:
 	@rm -f "${DESTDIR}${PREFIX}/bin/sct"
+	@rm -f "${DESTDIR}${MANPREFIX}/man1/sct.1"
 
 clean:
 	@rm -f sct
