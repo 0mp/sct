@@ -20,10 +20,13 @@ install: all
 	@cp -f sct "${DESTDIR}${PREFIX}/bin"
 	@chmod 0755 "${DESTDIR}${PREFIX}/bin/sct"
 
+install-strip: install
+	@strip "${DESTDIR}${PREFIX}/bin/sct"
+
 uninstall:
 	@rm -f "${DESTDIR}${PREFIX}/bin/sct"
 
 clean:
 	@rm -f sct
 
-.PHONY: all install uninstall
+.PHONY: all install install-strip uninstall
