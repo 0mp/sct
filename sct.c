@@ -4,6 +4,7 @@
 #include <X11/Xatom.h>
 #include <X11/extensions/Xrandr.h>
 
+#include <err.h>
 #include <stdlib.h>
 
 /* cribbed from redshift, but truncated with 500K steps */
@@ -34,10 +35,15 @@ int
 main(int argc, char **argv)
 {
 	Display *dpy = XOpenDisplay(NULL);
+	if (dpy == NULL)
+		errx(1, "Failed to open X display %s", XDisplayName(NULL));
+
 	int screen = DefaultScreen(dpy);
 	Window root = RootWindow(dpy, screen);
 
 	XRRScreenResources *res = XRRGetScreenResourcesCurrent(dpy, root);
+	if (res == NULL)
+		errx(1, "Failed to get screen resources");
 
 	int temp = 6500;
 	if (argc > 1)
