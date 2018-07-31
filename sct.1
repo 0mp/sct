@@ -23,7 +23,7 @@
 .\"
 .\" For more information, please refer to <http://unlicense.org>
 .\"
-.Dd March 29, 2018
+.Dd July 31, 2018
 .Dt SCT 1
 .Os
 .Sh SCT
@@ -54,6 +54,18 @@ Coffee-free all nighter:
 .Sh SEE ALSO
 .Xr redshift 1 ,
 .Xr xrandr 1
+.Sh DIAGNOSTICS
+.Bl -ohang
+.It Sy "Failed to get screen resources"
+Usually those messages mean that
+.Nm
+cannot connect to the
+.Xr X 7
+server.
+.It Sy "Failed to open X display %s"
+See
+.Sy "Failed to get screen resources" .
+.El
 .Sh HISTORY
 The
 .Nm
