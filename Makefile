@@ -11,25 +11,28 @@ SRC = sct.c
 CFLAGS += -std=c99 -Wall ${INCS}
 LDFLAGS += -lX11 -lXrandr ${LIBS}
 
+.PHONY: all
 all: sct
 
 sct: sct.c
 	@${CC} -o sct sct.c ${CFLAGS} ${LDFLAGS}
 
+.PHONY: install
 install: all
 	@mkdir -p "${DESTDIR}${PREFIX}/bin"
 	@install -m 755 sct "${DESTDIR}${PREFIX}/bin"
 	@mkdir -p "${DESTDIR}${MANPREFIX}/man/man1"
 	@install -m 444 sct.1 "${DESTDIR}${MANPREFIX}/man/man1"
 
+.PHONY: install-strip
 install-strip: install
 	@strip "${DESTDIR}${PREFIX}/bin/sct"
 
+.PHONY: uninstall
 uninstall:
 	@rm -f "${DESTDIR}${PREFIX}/bin/sct"
 	@rm -f "${DESTDIR}${MANPREFIX}/man1/sct.1"
 
+.PHONY: clean
 clean:
 	@rm -f sct
-
-.PHONY: all install install-strip uninstall
