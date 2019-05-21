@@ -36,3 +36,7 @@ uninstall:
 .PHONY: clean
 clean:
 	@rm -f sct
+
+.PHONY: regenerate-readme
+regenerate-readme:
+	mandoc -Tmarkdown sct.1 | awk 'NR > 2 {print}' | sed '$$d' | sed '$$d' > README.md
