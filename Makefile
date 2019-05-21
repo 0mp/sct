@@ -1,15 +1,15 @@
 # Public domain, do as you wish.
-PREFIX ?= /usr/local
-MANPREFIX ?= ${PREFIX}
+PREFIX?=	/usr/local
+MANPREFIX?=	${PREFIX}
 
-X11INC = /usr/local/include
-X11LIB = /usr/local/lib
-INCS = -I${X11INC}
-LIBS = -L${X11LIB}
+X11INC=	/usr/local/include
+X11LIB=	/usr/local/lib
+INCS=	-I${X11INC}
+LIBS=	-L${X11LIB}
 
-SRC = sct.c
-CFLAGS += -std=c99 -Wall ${INCS}
-LDFLAGS += -lX11 -lXrandr ${LIBS}
+SRC=	sct.c
+CFLAGS+=	-std=c99 -Wall ${INCS}
+LDFLAGS+=	-lX11 -lXrandr ${LIBS}
 
 .PHONY: all
 all: sct
